@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 //import Container from '@material-ui/core/Container';
 
 import Navbar from './components/Navbar'
-import ExercisesList from "./components/exercises-list.component";
-import CreateExercise from './components/create-exercise.component'
-import CreateUser from './components/create-user.component'
-import EditExercise from './components/edit-exercise.component'
+import ExercisesList from "./components/ExercisesList";
+import CreateExercise from './components/CreateExercise'
+import CreateUser from './components/CreateUser'
+import EditExercise from './components/EditExercise'
 
 
 function App() {

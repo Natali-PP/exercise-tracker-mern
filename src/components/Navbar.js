@@ -19,7 +19,10 @@ const useStyles = makeStyles({
         color: '#fff8e1',
         textDecoration: 'none',
         fontSize: '1.25rem',
-      }
+      },
+      linkButton:{
+        textDecoration:'none'
+    }
   });
 
   const StyledNavButton = styled(Button)({
@@ -54,9 +57,9 @@ const Navbar = () => {
                 item
                 >
                 
-                    <Link to="/" ><StyledNavButton >Exercises</StyledNavButton></Link>
-                    <Link to="/create" ><StyledNavButton >Create Exercise Log</StyledNavButton></Link>
-                    <Link to="/user" > <StyledNavButton >Create User</StyledNavButton> </Link>
+                    <Link className={classes.linkButton} to="/" ><StyledNavButton >Exercises</StyledNavButton></Link>
+                    <Link className={classes.linkButton} to="/create" ><StyledNavButton >Create Exercise Log</StyledNavButton></Link>
+                    <Link className={classes.linkButton} to="/user" > <StyledNavButton >Create User</StyledNavButton> </Link>
                
             </Grid>
                 
