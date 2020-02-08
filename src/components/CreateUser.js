@@ -8,6 +8,10 @@ import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import axios from 'axios';
+import Alert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles({
   title:{
@@ -30,6 +34,7 @@ const useStyles = makeStyles({
 
  const CreateUser = () => {
   const [username, setUsername] = useState('')
+  const [open, setOpen] = useState(false)
   const classes = useStyles()
 
 
@@ -45,7 +50,9 @@ const useStyles = makeStyles({
     axios.post('http://localhost:3000/users/add',newUser)
           .then( res => console.log(res.data))
 
+
     setUsername('')
+
   }
   
   return(
@@ -71,13 +78,36 @@ const useStyles = makeStyles({
             
           </Grid>
           <Grid item  >
+
+            <Collapse in={open}>
+            <Alert
+            severity="success"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            User added!
+          </Alert>
+        </Collapse>
             <Button 
+            disabled={open}
             variant="contained"
             color="secondary"
             size="large"
             type="submit"
             id="create-user"
             className={classes.sendButton}
+            onClick={() => {
+              setOpen(true);
+              }}
             > 
             <AddRoundedIcon />
             Create User </Button>
