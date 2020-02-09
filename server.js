@@ -12,7 +12,7 @@ app.use(express.json())
 
 //conecto a la base de datos
 const uri = process.env.ATLAS_URI
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect( process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const connection = mongoose.connection;connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
@@ -24,7 +24,11 @@ const usersRouter = require('./routes/users')
 app.use('/exercises', exerciseRouter)
 app.use('/users', usersRouter)
 
+//heroku deployment
 
+if(process.env.NODE_ENV === 'production'){
+  
+}
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 })
