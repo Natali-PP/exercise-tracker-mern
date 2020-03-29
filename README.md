@@ -11,8 +11,15 @@ I've build this proyect following [FreeCodeCamp's youtube video](https://www.you
 - Axion
 - Material-UI && [Material-UI Pickers](https://material-ui-pickers.dev/)
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Functionalities
+
+- Add new user
+- Add new exercise log
+- Edit logged exercise
+- Delete logged exercise
+- Show exercises of all users
 
 ## Available Scripts
 
